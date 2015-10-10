@@ -20,5 +20,16 @@
   "files": [
     "index.js"
   ],
-  "keywords": []
+  "keywords": [
+    "allow",
+    "callback",
+    "callbackify",
+    "cb",
+    "free",
+    "promise",
+    "then",
+    "thenify",
+    "wrap",
+    "wrapper"
+  ]
 }
