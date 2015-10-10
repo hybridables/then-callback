@@ -18,7 +18,7 @@ test('should throw TypeError if `promise` not a promise', function (done) {
     thenCallback(123)
   }
   test.throws(fixture, TypeError)
-  test.throws(fixture, /expect a `promise` be promise/)
+  test.throws(fixture, /expect `promise` to be promise/)
   done()
 })
 

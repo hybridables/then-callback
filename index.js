@@ -29,7 +29,7 @@ var isPromise = require('is-promise')
  */
 module.exports = function thenCallback (promise) {
   if (!isPromise(promise)) {
-    throw new TypeError('wrapen: expect a `promise` be promise')
+    throw new TypeError('then-callback: expect `promise` to be promise')
   }
   var thenCopy = promise.then
   promise.then = function then_ (callback, reject) {
