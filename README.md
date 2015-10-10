@@ -64,6 +64,13 @@ thenCallback(promise).then(console.log, console.error) //=> '123'
 ```
 
 
+## Related
+- [always-promise](https://github.com/hybridables/always-promise): Promisify, basically, everything. Generator function, callback-style or synchronous function; sync function that returns child process, stream or observable; directly passed promise, stream or child process.
+- [letta](https://github.com/hybridables/letta): Let's move to promises! Drop-in replacement for `co@4`, but on steroids. Accepts sync, async and generator functions.
+- [native-or-another](https://github.com/tunnckoCore/native-or-another): Always will expose native `Promise` if available, otherwise `Bluebird` but only if you don't give another promise module like `q` or `promise` or what you want.
+- [native-promise](https://github.com/tunnckoCore/native-promise): Get native `Promise` or falsey value if not available.
+
+
 ## Contributing
 Pull requests and stars are always welcome. For bugs and feature requests, [please create an issue](https://github.com/hybridables/then-callback/issues/new).  
 But before doing anything, please read the [CONTRIBUTING.md](./CONTRIBUTING.md) guidelines.
