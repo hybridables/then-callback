@@ -1,5 +1,12 @@
 
 
+## 1.0.2 - 2016-01-17
+- Release v1.0.2 / npm@v1.0.2
+- update docs
+- update tests
+- close #2, close #3
+- update
+
 ## 1.0.1 - 2015-10-11
 - Release v1.0.1 / npm@v1.0.1
 - fix error message
