@@ -24,27 +24,34 @@ test('should throw TypeError if `promise` not a promise', function (done) {
 
 test('should accept callback-style function', function (done) {
   var promise = NativePromise.resolve(123)
-  promise = thenCallback(promise)
-  promise.then(function (err, res) {
+  thenCallback(promise).then(function (err, res) {
     test.ifError(err)
+    test.strictEqual(err, null)
     test.strictEqual(res, 123)
     done()
   })
 })
 
-test('should works as normal `.then` if second argument is given', function (done) {
+test('should works as normal `.then` if second argument is not given', function (done) {
   var promise = NativePromise.resolve(123)
-  promise = thenCallback(promise)
-  promise.then(function (res) {
+  thenCallback(promise).then(function (res) {
     test.strictEqual(res, 123)
     done()
   }, done)
 })
 
+test('should works as normal `.then` and handle errors', function (done) {
+  var promise = NativePromise.reject(new Error('foobar'))
+  thenCallback(promise).then(null, function (err) {
+    test.ifError(!err)
+    test.strictEqual(err.message, 'foobar')
+    done()
+  })
+})
+
 test('should handle errors when callback-style function given', function (done) {
   var promise = NativePromise.reject(new Error('foobar'))
-  promise = thenCallback(promise)
-  promise.then(function (err, res) {
+  thenCallback(promise).then(function (err, res) {
     test.ifError(!err)
     test.strictEqual(err.message, 'foobar')
     test.strictEqual(res, undefined)
@@ -54,8 +61,7 @@ test('should handle errors when callback-style function given', function (done) 
 
 test('should catch errors as normal', function (done) {
   var promise = NativePromise.reject(new Error('foobaz'))
-  promise = thenCallback(promise)
-  promise.catch(function (err) {
+  thenCallback(promise).catch(function (err) {
     test.ifError(!err)
     test.strictEqual(err.message, 'foobaz')
     done()
