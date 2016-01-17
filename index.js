@@ -33,13 +33,17 @@ module.exports = function thenCallback (promise) {
   }
   var thenCopy = promise.then
   promise.then = function then_ (callback, reject) {
+    callback = typeof callback === 'function' ? callback : null
     if (typeof reject === 'function') {
       return thenCopy.apply(promise, [callback, reject])
     }
     return thenCopy.call(promise, function (res) {
-      callback.apply(this, [null].concat(res))
+      callback && callback.apply(this, [null].concat(res))
       return res
-    }, callback)
+    }, callback ? function (err) {
+      callback(err)
+      throw err
+    } : false)
   }
   return promise
 }
