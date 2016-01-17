@@ -14,7 +14,7 @@ npm i then-callback --save
 ## Usage
 > For more use-cases see the [tests](./test.js)
 
-### [thenCallback](./index.js#L30)
+### [thenCallback](./index.js#L43)
 > Basically, you just pass a promise and it returns promise, but `.then` from the returned promise can accept a callback function, instead of two arguments as usual - one for result, one for error.  
 Notice that it also works as normal `.then` if you pass two arguments.
 
@@ -25,6 +25,19 @@ Notice that it also works as normal `.then` if you pass two arguments.
 
 ```js
 const thenCallback = require('then-callback')
+const promise = Promise.resolve(123)
+
+thenCallback(promise).then((err, res) => {
+  console.log('err:', err) // => null
+  console.log('res:', res) // => 123
+})
+
+// but also works as normal `.then`
+thenCallback(promise).then((res) => {
+  console.log('res:', res) // => 123
+}, (err) => {
+  console.log('err:', err)
+})
 ```
 
 You just need to wrap a promise, then you can use `.then` as usual, or to pass callback-style function to it as first argument.
@@ -35,6 +48,7 @@ You just need to wrap a promise, then you can use `.then` as usual, or to pass c
 const fs = require('fs')
 const redolent = require('redolent')
 const readFile = redolent(fs.readFile)
+const thenCallback = require('then-callback')
 
 const thenCallback = require('then-callback')
 var promise = readFile('package.json', 'utf8')

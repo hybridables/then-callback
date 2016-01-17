@@ -20,6 +20,19 @@ var isPromise = require('is-promise')
  *
  * ```js
  * const thenCallback = require('then-callback')
+ * const promise = Promise.resolve(123)
+ *
+ * thenCallback(promise).then((err, res) => {
+ *   console.log('err:', err) // => null
+ *   console.log('res:', res) // => 123
+ * })
+ *
+ * // but also works as normal `.then`
+ * thenCallback(promise).then((res) => {
+ *   console.log('res:', res) // => 123
+ * }, (err) => {
+ *   console.log('err:', err)
+ * })
  * ```
  *
  * @name   thenCallback
