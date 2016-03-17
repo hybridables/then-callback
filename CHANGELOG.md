@@ -1,5 +1,10 @@
 
 
+## 1.0.3 - 2016-02-17
+- Release v1.0.3 / npm@v1.0.3
+- use `pre-commit`
+- fixes #4
+
 ## 1.0.2 - 2016-01-17
 - Release v1.0.2 / npm@v1.0.2
 - update docs

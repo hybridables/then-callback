@@ -1,6 +1,6 @@
 {
   "name": "then-callback",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Wrap a promise to allow passing callback to `.then` of given promise, also works as normal `.then`",
   "repository": "hybridables/then-callback",
   "author": "Charlike Mike Reagent <@tunnckoCore> (http://www.tunnckocore.tk)",
