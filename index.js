@@ -51,7 +51,7 @@ module.exports = function thenCallback (promise) {
       return thenCopy.apply(promise, [callback, reject])
     }
     return thenCopy.call(promise, function (res) {
-      callback && callback.apply(this, [null].concat(res))
+      callback && callback.call(this, null, res)
       return res
     }, callback ? function (err) {
       callback(err)

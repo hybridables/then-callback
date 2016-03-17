@@ -67,3 +67,12 @@ test('should catch errors as normal', function (done) {
     done()
   })
 })
+
+test('should work for arrays (fixes #4)', function (done) {
+  var promise = NativePromise.resolve([1, 2, 3, 4])
+  thenCallback(promise).then(function (err, res) {
+    test.ifError(err)
+    test.deepEqual(res, [1, 2, 3, 4])
+    done()
+  })
+})
