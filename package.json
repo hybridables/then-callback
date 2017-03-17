@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "assertit": "^0.1.0",
-    "native-or-another": "^4.0.0",
+    "native-or-another": "^5.0.0",
     "pre-commit": "^1.1.2",
     "redolent": "^1.0.3"
   },
